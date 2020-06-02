@@ -21,7 +21,7 @@ diff -r 050d521d66d8 config.def.h
 diff -r 050d521d66d8 movestack.c
 --- /dev/null	Thu Jan 01 00:00:00 1970 +0000
 +++ b/movestack.c	Sun Sep 05 18:43:07 2010 +0200
-@@ -0,0 +1,49 @@
+@@ -0,0 +1,48 @@
 +void
 +movestack(const Arg *arg) {
 +	Client *c = NULL, *p = NULL, *pc = NULL, *i;
@@ -70,4 +70,3 @@ diff -r 050d521d66d8 movestack.c
 +		arrange(selmon);
 +	}
 +}
-+
