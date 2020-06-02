@@ -1,3 +1,9 @@
+# My build of **suckless's dwm**
+
+This build includes some patches (source is inside **'patches'** folder) and personal configurations in **'config.h'** file.  
+The **'colors-dwm.h'** file has my theme configuration for **dwm**.  
+Bellow are the contents of the original README file from **suckless**.  
+
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
