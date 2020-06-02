@@ -1,9 +1,0 @@
-diff a/config.def.h b/config.def.h	(rejected hunks)
-@@ -57,6 +57,7 @@
- static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
- static const char *termcmd[]  = { "st", NULL };
- 
-+#include "movestack.c"
- static Key keys[] = {
- 	/* modifier                     key        function        argument */
- 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
