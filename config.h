@@ -72,10 +72,14 @@ static const Layout layouts[] = {
  * commands
  * some commands are initialized in an array for being too long
  */
+#include "movestack.c"
+
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "mdmenu_run", "-m", dmenumon, "-i", NULL }; // uses my dmenu_run script
 
-#include "movestack.c"
+/* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
+static char *statuscmds[] = { "notify-send Mouse$BUTTON" };
+static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 static Key keys[] = {
   /* modifier   key   function    argument */
@@ -181,9 +185,12 @@ static Button buttons[] = {
   { ClkLtSymbol,    0,        Button1,  setlayout,      {0}                 },
   { ClkWinTitle,    0,        Button2,  zoom,           {0}                 },
   { ClkLtSymbol,    0,        Button3,  setlayout,      {.v = &layouts[3]}  },
-  { ClkStatusText,  0,        Button1,  spawn,          STCMD("pulsemixer") },
-  { ClkStatusText,  0,        Button2,  spawn,          XACMD("st")         },
-  { ClkStatusText,  0,        Button3,  spawn,          STCMD("nmtui")      },
+	{ ClkStatusText,  0,        Button1,  sigdwmblocks,   {.i = 1}            },
+	{ ClkStatusText,  0,        Button2,  sigdwmblocks,   {.i = 2}            },
+	{ ClkStatusText,  0,        Button3,  sigdwmblocks,   {.i = 3}            },
+  // { ClkStatusText,  0,        Button1,  spawn,          STCMD("pulsemixer") },
+  // { ClkStatusText,  0,        Button2,  spawn,          XACMD("st")         },
+  // { ClkStatusText,  0,        Button3,  spawn,          STCMD("nmtui")      },
   { ClkClientWin,   MODKEY,   Button1,  movemouse,      {0}                 },
   { ClkClientWin,   MODKEY,   Button2,  togglefloating, {0}                 },
   { ClkClientWin,   MODKEY,   Button3,  resizemouse,    {0}                 },
