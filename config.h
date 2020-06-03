@@ -183,22 +183,22 @@ static Key keys[] = {
 
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-  /* click event    mask      button    function        argument */
-  { ClkLtSymbol,    0,        Button1,  setlayout,      {0}                 },
-  { ClkWinTitle,    0,        Button2,  zoom,           {0}                 },
-  { ClkLtSymbol,    0,        Button3,  setlayout,      {.v = &layouts[3]}  },
-	{ ClkStatusText,  0,        Button1,  sigdwmblocks,   {.i = 1}            },
-	{ ClkStatusText,  0,        Button2,  sigdwmblocks,   {.i = 2}            },
-	{ ClkStatusText,  0,        Button3,  sigdwmblocks,   {.i = 3}            },
-  // { ClkStatusText,  0,        Button1,  spawn,          STCMD("pulsemixer") },
-  // { ClkStatusText,  0,        Button2,  spawn,          XACMD("st")         },
-  // { ClkStatusText,  0,        Button3,  spawn,          STCMD("nmtui")      },
-  { ClkClientWin,   MODKEY,   Button1,  movemouse,      {0}                 },
-  { ClkClientWin,   MODKEY,   Button2,  togglefloating, {0}                 },
-  { ClkClientWin,   MODKEY,   Button3,  resizemouse,    {0}                 },
-  { ClkTagBar,      0,        Button1,  view,           {0}                 },
-  { ClkTagBar,      0,        Button3,  toggleview,     {0}                 },
-  { ClkTagBar,      MODKEY,   Button1,  tag,            {0}                 },
-  { ClkTagBar,      MODKEY,   Button3,  toggletag,      {0}                 },
+  /* click event    mask        button    function        argument */
+  { ClkLtSymbol,    0,          Button1,  setlayout,      {0}                 },
+  { ClkWinTitle,    0,          Button2,  zoom,           {0}                 },
+  { ClkLtSymbol,    0,          Button3,  setlayout,      {.v = &layouts[3]}  },
+	{ ClkStatusText,  0,          Button1,  sigdwmblocks,   {.i = 1}            },
+	{ ClkStatusText,  0,          Button2,  sigdwmblocks,   {.i = 2}            },
+	{ ClkStatusText,  0,          Button3,  sigdwmblocks,   {.i = 3}            },
+	{ ClkStatusText,  ShiftMask,  Button1,  sigdwmblocks,   {.i = 4}            },
+	{ ClkStatusText,  ShiftMask,  Button2,  sigdwmblocks,   {.i = 5}            },
+	{ ClkStatusText,  ShiftMask,  Button3,  sigdwmblocks,   {.i = 6}            },
+  { ClkClientWin,   MODKEY,     Button1,  movemouse,      {0}                 },
+  { ClkClientWin,   MODKEY,     Button2,  togglefloating, {0}                 },
+  { ClkClientWin,   MODKEY,     Button3,  resizemouse,    {0}                 },
+  { ClkTagBar,      0,          Button1,  view,           {0}                 },
+  { ClkTagBar,      0,          Button3,  toggleview,     {0}                 },
+  { ClkTagBar,      MODKEY,     Button1,  tag,            {0}                 },
+  { ClkTagBar,      MODKEY,     Button3,  toggletag,      {0}                 },
 };
 
