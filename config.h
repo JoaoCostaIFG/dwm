@@ -179,6 +179,8 @@ static Key keys[] = {
 };
 
 /* button definitions */
+#define DWMBLOCKS_ENV "DWMBLOCKS_BUTTON"
+
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
   /* click event    mask      button    function        argument */
