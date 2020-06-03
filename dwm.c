@@ -1763,7 +1763,7 @@ spawn(const Arg *arg)
 		dmenumon[0] = '0' + selmon->num;
 	else if (arg->v == statuscmd) {
 		statuscmd[2] = statuscmds[statuscmdn];
-		setenv("BUTTON", lastbutton, 1);
+		setenv("DWMBLOCKS_BUTTON", lastbutton, 1); // dwmblocks button env var
 	}
 	if (fork() == 0) {
 		if (dpy)
