@@ -433,6 +433,7 @@ attachstack(Client *c)
 	c->mon->stack = c;
 }
 
+#include <stdio.h>
 void
 buttonpress(XEvent *e)
 {
@@ -460,7 +461,7 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
-		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
+		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad/2)) {
 			click = ClkStatusText;
 
 			char *text = rawstext;
@@ -475,7 +476,7 @@ buttonpress(XEvent *e)
 					text[i] = ch;
 					text += i+1;
 					i = -1;
-					if (x >= ev->x) break;
+          if (x >= ev->x) break;
 					dwmblockssig = ch;
 				}
 			}
@@ -766,11 +767,13 @@ drawbar(Monitor *m)
 	unsigned int i, occ = 0, urg = 0, n = 0;
 	Client *c;
 
+  // added this var
 	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
+  /* status is only drawn on selected monitor, if statusinallscreens is 0 */
+	if (statusinallscreens || m == selmon) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		sw = TEXTW(stext);
-		drw_text(drw, m->ww - sw, 0, sw, bh, lrpad / 2, stext, 0);
+    sw = TEXTW(stext);
+    drw_text(drw, m->ww - sw, 0, sw, bh, lrpad / 2, stext, 0);
 	}
 
 	for (c = m->clients; c; c = c->next) {
@@ -1744,8 +1747,7 @@ sigdwmblocks(const Arg *arg)
 {
 	union sigval sv;
 	sv.sival_int = (dwmblockssig << 8) | arg->i;
-	if (!dwmblockspid)
-		if (getdwmblockspid() == -1)
+	if (!dwmblockspid && getdwmblockspid() == -1)
 			return;
 
 	if (sigqueue(dwmblockspid, SIGUSR1, sv) == -1) {

@@ -4,10 +4,11 @@
 static const unsigned int borderpx  = 2;  // border pixel of windows
 static const int gappx              = 5;  // gaps between windows
 static const unsigned int snap      = 32; // snap pixel
+static const int statusinallscreens = 1;  // 1 means status is drawn in all screens
 static const int showbar            = 1;  // 0 means no bar
 static const int topbar             = 1;  // 0 means bottom- bar
-static const int horizpadbar        = 6;  // horizontal padding for statusbar
-static const int vertpadbar         = 7;  // vertical padding for statusbar
+static const int horizpadbar        = 2;  // horizontal padding for statusbar
+static const int vertpadbar         = 0;  // vertical padding for statusbar
 static const char *fonts[]          = { "Fira Code:weight=Bold:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "mono:weight=Bold:pixelsize=12:antialias=true:autohint=true";
 /* tranparency */
@@ -100,11 +101,11 @@ static Key keys[] = {
   { MODKEY,             XK_F7,    spawn,  SHCMD("mpc next")                         },  // mpc next song
   { MODKEY|ShiftMask,   XK_F7,    spawn,  SHCMD("mpc volume +5")                    },  // mpc volume up
   { MODKEY|ControlMask, XK_F5,  spawn,  SHCMD("notify-send -u low 'Current song' \"$(mpc current)\" &") },
-  { MODKEY|ShiftMask,   XK_F8,    spawn,  SHCMD("amixer set Capture toggle; slslstatus -u") },  // mic mute
+  { MODKEY|ShiftMask,   XK_F8,    spawn,  SHCMD("amixer set Capture toggle; kill -36 $(pidof dwmblocks)") },  // mic mute
   { MODKEY|ControlMask, XK_F8,    spawn,  XACMD("next_sink")                        },  // use next pulse sink in list
-  { MODKEY,   XK_F8,    spawn,    SHCMD("amixer set Master toggle; slslstatus -u")  },  // volume mute
-  { MODKEY,   XK_F9,    spawn,    SHCMD("amixer set Master 5%-; slslstatus -u")     },  // volume down
-  { MODKEY,   XK_F10,   spawn,    SHCMD("amixer set Master 5%+; slslstatus -u")     },  // volume up
+  { MODKEY,   XK_F8,    spawn,    SHCMD("amixer set Master toggle; kill -36 $(pidof dwmblocks)")  },  // volume mute
+  { MODKEY,   XK_F9,    spawn,    SHCMD("amixer set Master 5%-; kill -36 $(pidof dwmblocks)")     },  // volume down
+  { MODKEY,   XK_F10,   spawn,    SHCMD("amixer set Master 5%+; kill -36 $(pidof dwmblocks)")     },  // volume up
 
   /* control clients */
   { LAltMask,         XK_F4,     killclient,      {0} },
