@@ -767,10 +767,9 @@ drawbar(Monitor *m)
 	unsigned int i, occ = 0, urg = 0, n = 0;
 	Client *c;
 
-  // added this var
 	/* draw status first so it can be overdrawn by tags later */
   /* status is only drawn on selected monitor, if statusinallscreens is 0 */
-	if (statusinallscreens || m == selmon) {
+	if (m == selmon) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
     sw = TEXTW(stext);
     drw_text(drw, m->ww - sw, 0, sw, bh, lrpad / 2, stext, 0);
