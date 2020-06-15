@@ -181,6 +181,7 @@ static Key keys[] = {
 
 /* button definitions */
 #define DWMBLOCKS_ENV "DWMBLOCKS_BUTTON"
+#define DWMBLOCKS_PIDFILEPATH "/tmp/dwmblocks.pid"
 
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {

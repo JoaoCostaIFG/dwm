@@ -968,13 +968,21 @@ getatomprop(Client *c, Atom prop)
 int
 getdwmblockspid()
 {
+  dwmblockspid = 0;
 	char buf[16];
-	FILE *fp = popen("pidof -s dwmblocks", "r");
-	fgets(buf, sizeof(buf), fp);
-	pid_t pid = strtoul(buf, NULL, 10);
-	pclose(fp);
-	dwmblockspid = pid;
-	return pid != 0 ? 0 : -1;
+  FILE *fp;
+  if ((fp = fopen("/tmp/dwmblocks.pid", "r"))) { // try to find dwmblocks pid file
+    fgets(buf, sizeof(buf), fp);
+    dwmblockspid = strtoul(buf, NULL, 10);
+    fclose(fp);
+  }
+  else if ((fp = popen("pidof -s dwmblocks", "r"))) { // try to find dwmblocks proc
+    fgets(buf, sizeof(buf), fp);
+    dwmblockspid = strtoul(buf, NULL, 10);
+    pclose(fp);
+  }
+
+	return dwmblockspid != 0 ? 0 : -1;
 }
 
 int
