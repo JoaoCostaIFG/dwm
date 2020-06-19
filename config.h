@@ -75,7 +75,7 @@ static const Layout layouts[] = {
 #include "movestack.c"
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "mdmenu_run", "-m", dmenumon, "-i", NULL }; // uses my dmenu_run script
+static const char *dmenucmd[] = { "mdmenu_run", "-m", dmenumon, "-h", "8", "-i", NULL }; // uses my dmenu_run script
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static char *statuscmds[] = { "notify-send Mouse$BUTTON" };
