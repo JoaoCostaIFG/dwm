@@ -101,7 +101,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,   XK_F7,    spawn,  SHCMD("mpc volume +5")                    },  // mpc volume up
   { MODKEY|ControlMask, XK_F5,    spawn,  SHCMD("notify-send -u low 'Current song' \"$(mpc current)\" &") },
   { MODKEY|ShiftMask,   XK_F8,    spawn,  SHCMD("amixer set Capture toggle; dwmblocks -s2") },  // mic mute
-  { MODKEY|ControlMask, XK_F8,    spawn,  XACMD("next_sink")                        },  // use next pulse sink in list
+  { MODKEY|ControlMask, XK_F8,    spawn,  SHCMD("next_sink; dwmblocks -s2")         },  // use next pulse sink in list
   { MODKEY,   XK_F8,    spawn,    SHCMD("amixer set Master toggle; dwmblocks -s2")  },  // volume mute
   { MODKEY,   XK_F9,    spawn,    SHCMD("amixer set Master 5%-; dwmblocks -s2")     },  // volume down
   { MODKEY,   XK_F10,   spawn,    SHCMD("amixer set Master 5%+; dwmblocks -s2")     },  // volume up
