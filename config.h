@@ -85,12 +85,12 @@ static Key keys[] = {
   /* modifier   key   function    argument */
 
   /* DWM control */
-  { MODKEY|ShiftMask|ControlMask, XK_r,   quit,       {0}                       },  // Restart (do while .xinit)
-  { MODKEY|ShiftMask|ControlMask, XK_q,   spawn,      XACMD("killall", "xinit") },  // Quit
-  { MODKEY,                       XK_b,   togglebar,  {0}                       },
+  { MODKEY|ShiftMask|ControlMask, XK_r,   quit,       {0}                                   },  // Restart (do while .xinit)
+  { MODKEY|ShiftMask|ControlMask, XK_q,   spawn,      SHCMD("dwmblocks -k; killall xinit")  },  // Quit
+  { MODKEY,                       XK_b,   togglebar,  {0}                             },
   { MODKEY,           XK_F11, spawn,      SHCMD("notify-send 'DUNST_COMMAND_PAUSE'")  },  // Disable dunst notifications
   { MODKEY|ShiftMask, XK_F11, spawn,      SHCMD("notify-send 'DUNST_COMMAND_RESUME'") },  // Enable dunst notifications
-  { MODKEY,                       XK_F12, spawn,      XACMD("slock")            },  // Lockscreen
+  { MODKEY,                       XK_F12, spawn,      XACMD("slock")  },  // Lockscreen
 
   /* media keys */
   { MODKEY,             XK_F5,    spawn,  SHCMD("mpc toggle")                       },  // mpc pause/play
@@ -121,6 +121,7 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_h,   spawn,    XACMD("dpizhid")      },  // private password manager
   { MODKEY|ControlMask,           XK_i,   spawn,    STCMD("newsboat")     },
   { MODKEY|ControlMask,           XK_m,   spawn,    XACMD("dmount")       },  // helper to mounting devices
+  { MODKEY,                       XK_m,   spawn,    XACMD("screen_measure") },  // measure distance between 2 points
   { MODKEY|ControlMask,           XK_n,   spawn,    XACMD("dtodo")        },  // checklist style notetaker
   { MODKEY|ControlMask,           XK_p,   spawn,    XACMD("gimp")         },
   { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("firefox")      },
@@ -131,10 +132,10 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_v,   spawn,    XACMD("drecord")      },
   { MODKEY|ControlMask,           XK_w,   spawn,    STCMD("nvim")         },
   { MODKEY,                       XK_p,   spawn,    { .v = dmenucmd }     },
-  { MODKEY,                       XK_Return,  spawn,  { .v = dmenucmd }           },
-  { MODKEY,                       XK_Print,   spawn,  XACMD("maim_handler")       },  // Full screenshot
-  { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("maim_handler", "1")  },  // Snipping tool
-  { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("maim_handler", "2")  },  // Color picker
+  { MODKEY,                       XK_Return,  spawn,  { .v = dmenucmd }   },
+  { MODKEY,                       XK_Print,   spawn,  XACMD("maim_handler screenshot")  },  // Full screenshot
+  { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("maim_handler", "snip")     },  // Snipping tool
+  { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("maim_handler")             },  // Diverse options
 
   /* vertical movements */
   { MODKEY|ShiftMask,   XK_j,     movestack,    {.i = +1 }  },
