@@ -87,10 +87,9 @@ static Key keys[] = {
   /* DWM control */
   { MODKEY|ShiftMask|ControlMask, XK_r,   quit,       {0}                                   },  // Restart (do while .xinit)
   { MODKEY|ShiftMask|ControlMask, XK_q,   spawn,      SHCMD("dwmblocks -k; killall xinit")  },  // Quit
-  { MODKEY,                       XK_b,   togglebar,  {0}                             },
-  { MODKEY,           XK_F11, spawn,      SHCMD("notify-send 'DUNST_COMMAND_PAUSE'")  },  // Disable dunst notifications
-  { MODKEY|ShiftMask, XK_F11, spawn,      SHCMD("notify-send 'DUNST_COMMAND_RESUME'") },  // Enable dunst notifications
-  { MODKEY,                       XK_F12, spawn,      XACMD("slock")  },  // Lockscreen
+  { MODKEY,                       XK_b,   togglebar,  {0}                                   },
+  { MODKEY,                       XK_F11, spawn,      SHCMD("dunstctl set-paused toggle")   },  // Toggle dunst notifications
+  { MODKEY,                       XK_F12, spawn,      XACMD("slock")                        },  // Lockscreen
 
   /* media keys */
   { MODKEY,             XK_F5,    spawn,  SHCMD("mpc toggle")                       },  // mpc pause/play
