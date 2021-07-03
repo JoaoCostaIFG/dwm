@@ -8,8 +8,7 @@ static const int showbar            = 1;  // 0 means no bar
 static const int topbar             = 1;  // 0 means bottom- bar
 static const int horizpadbar        = 2;  // horizontal padding for statusbar
 static const int vertpadbar         = 0;  // vertical padding for statusbar
-static const char *fonts[]          = { "mono:weight=Bold:pixelsize=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "mono:weight=Bold:pixelsize=12:antialias=true:autohint=true";
+static const char *fonts[]          = { "monospace:weight=Bold:pixelsize=12" };
 /* tranparency */
 static const unsigned int baralpha = 0xbf;
 static const unsigned int borderalpha = OPAQUE;
@@ -88,7 +87,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask|ControlMask, XK_r,   quit,       {0}                                   },  // Restart (do while .xinit)
   { MODKEY|ShiftMask|ControlMask, XK_q,   spawn,      SHCMD("dwmblocks -k; killall xinit")  },  // Quit
   { MODKEY,                       XK_b,   togglebar,  {0}                                   },
-  { MODKEY,                       XK_F11, spawn,      SHCMD("dunstctl set-paused toggle")   },  // Toggle dunst notifications
+  { MODKEY,                       XK_F11, spawn,      SHCMD("dunst_toggle")                 },  // Toggle dunst notifications
   { MODKEY,                       XK_F12, spawn,      XACMD("slock")                        },  // Lockscreen
 
   /* media keys */
@@ -115,6 +114,7 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_a,   spawn,    SHCMD("st -e calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse") },
   { MODKEY|ControlMask,           XK_c,   spawn,    STCMD("python")       },
   { MODKEY|ShiftMask|ControlMask, XK_c,   spawn,    STCMD("mmaxima")      },
+  { MODKEY,                       XK_e,   spawn,    XACMD("emoji-picker") },
   { MODKEY|ControlMask,           XK_e,   spawn,    XACMD("thunderbird")  },
   { MODKEY|ControlMask,           XK_f,   spawn,    STCMD("lfcd_sh")      },  // execute lf in st and cd to last dir on exit
   { MODKEY|ControlMask,           XK_h,   spawn,    XACMD("dpizhid")      },  // private password manager
