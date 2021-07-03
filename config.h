@@ -8,7 +8,8 @@ static const int showbar            = 1;  // 0 means no bar
 static const int topbar             = 1;  // 0 means bottom- bar
 static const int horizpadbar        = 2;  // horizontal padding for statusbar
 static const int vertpadbar         = 0;  // vertical padding for statusbar
-static const char *fonts[]          = { "monospace:weight=Bold:pixelsize=12" };
+static const char *fonts[]          = { "monospace:weight=Bold:pixelsize=12", "Symbola:pixelsize=12" };
+static const char dmenufont[]       = "monospace:weight=Bold:pixelsize=12";
 /* tranparency */
 static const unsigned int baralpha = 0xbf;
 static const unsigned int borderalpha = OPAQUE;
