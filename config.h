@@ -30,10 +30,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating    monitor */
-  { "firefox",  NULL,       NULL,       1 << 8,       0,            -1 },
-  { "discord",  NULL,       NULL,       1 << 7,       0,            -1 },
-  { "Steam",    NULL,       NULL,       1 << 6,       0,            -1 },
+	/* class          instance    title       tags mask     isfloating    monitor */
+  { "firefox",      NULL,       NULL,       1 << 8,       0,            -1 },
+  { "discord",      NULL,       NULL,       1 << 7,       0,            -1 },
+  { "Steam",        NULL,       NULL,       1 << 6,       0,            -1 },
+  { "st",           "st-float", NULL,       ~0,           1,            -1 },
 };
 
 /* layout(s) */
@@ -127,14 +128,15 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("firefox")      },
   { MODKEY|ControlMask,           XK_s,   spawn,    STCMD("ncmpcpp")      },
   { MODKEY,                       XK_t,   spawn,    XACMD("st")           },
-  { MODKEY|ControlMask,           XK_t,   spawn,    XACMD("st")           },
-  { MODKEY|ShiftMask,             XK_t,   spawn,    XACMD("xterm")        },  // backup terminal
+  { MODKEY|ControlMask,           XK_t,   spawn,    XACMD("xterm")        }, // backup terminal
+  { MODKEY|ShiftMask,             XK_t,   spawn,    XACMD("st-float")     },
   { MODKEY|ControlMask,           XK_v,   spawn,    XACMD("drecord")      },
   { MODKEY|ControlMask,           XK_w,   spawn,    STCMD("nvim")         },
   { MODKEY,                       XK_p,   spawn,    { .v = dmenucmd }     },
   { MODKEY,                       XK_Return,  spawn,  { .v = dmenucmd }   },
   { MODKEY,                       XK_Print,   spawn,  XACMD("maim_handler", "screenshot") },  // Full screenshot
   { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("maim_handler", "snip")       },  // Snipping tool
+  { MODKEY|ShiftMask,             XK_s,       spawn,  XACMD("maim_handler", "snip")       },  // Snipping tool
   { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("maim_handler")               },  // Diverse options
 
   /* vertical movements */
