@@ -8,8 +8,22 @@ static const int showbar            = 1;  // 0 means no bar
 static const int topbar             = 1;  // 0 means bottom- bar
 static const int horizpadbar        = 2;  // horizontal padding for statusbar
 static const int vertpadbar         = 0;  // vertical padding for statusbar
-static const char *fonts[]          = { "monospace:weight=Bold:pixelsize=12", "Symbola:pixelsize=12" };
+/* font */
+static char font[]                  = "monospace:weight=Bold:pixelsize=12";
 static const char dmenufont[]       = "monospace:weight=Bold:pixelsize=12";
+static const char *fonts[]          = { font, "Symbola:pixelsize=12" };
+/* colors */
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+};
 /* tranparency */
 static const unsigned int baralpha = 0xbf;
 static const unsigned int borderalpha = OPAQUE;
@@ -19,8 +33,18 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-/* colors */
-#include "colors-dwm.h"
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		{ "font",             STRING,  &font            },
+		{ "normbgcolor",      STRING,  &normbgcolor     },
+		{ "normbordercolor",  STRING,  &normbordercolor },
+		{ "normfgcolor",      STRING,  &normfgcolor     },
+		{ "selbgcolor",       STRING,  &selbgcolor      },
+		{ "selbordercolor",   STRING,  &selbordercolor  },
+		{ "selfgcolor",       STRING,  &selfgcolor      },
+};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
