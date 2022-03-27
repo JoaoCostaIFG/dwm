@@ -114,9 +114,9 @@ static Key keys[] = {
   { MODKEY|ShiftMask|ControlMask, XK_q,   spawn,      SHCMD("dwmblocks -k; killall xinit")  },  // Quit
   { MODKEY,                       XK_b,   togglebar,  {0}                                   },
   { MODKEY,                       XK_F11, spawn,      SHCMD("dunst_toggle")                 },  // Toggle dunst notifications
-  { ControlMask,                  XK_backslash, spawn, SHCMD("dunstctl close")              },
-  { ControlMask|ShiftMask,        XK_backslash, spawn, SHCMD("dunstctl close-all")          },
-  { ControlMask,                  XK_space,     spawn, SHCMD("dunstctl history-pop")        },
+  { MODKEY|ControlMask,           XK_backslash, spawn, SHCMD("dunstctl close")              },
+  { MODKEY|ControlMask|ShiftMask, XK_backslash, spawn, SHCMD("dunstctl close-all")          },
+  { MODKEY|ControlMask,           XK_space,     spawn, SHCMD("dunstctl history-pop")        },
   { MODKEY,                       XK_F12, spawn,      XACMD("slock")                        },  // Lockscreen
 
   /* media keys */
