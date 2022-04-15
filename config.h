@@ -163,10 +163,10 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_w,   spawn,    STCMD("nvim")         },
   { MODKEY,                       XK_p,   spawn,    { .v = dmenucmd }     },
   { MODKEY,                       XK_Return,  spawn,  { .v = dmenucmd }   },
-  { MODKEY,                       XK_Print,   spawn,  XACMD("maim_handler", "screenshot") },  // Full screenshot
-  { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("maim_handler", "snip")       },  // Snipping tool
-  { MODKEY|ShiftMask,             XK_s,       spawn,  XACMD("maim_handler", "snip")       },  // Snipping tool
-  { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("maim_handler")               },  // Diverse options
+  { MODKEY,                       XK_Print,   spawn,  XACMD("screenshots", "screenshot") },  // Full screenshot
+  { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("screenshots", "snip")       },  // Snipping tool
+  { MODKEY|ShiftMask,             XK_s,       spawn,  XACMD("screenshots", "snip")       },  // Snipping tool
+  { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("screenshots")               },  // Diverse options
 
   /* vertical movements */
   { MODKEY|ShiftMask,   XK_j,     movestack,    {.i = +1 }  },
