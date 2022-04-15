@@ -54,11 +54,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class          instance    title       tags mask     isfloating    monitor */
-  { "firefox",      NULL,       NULL,       1 << 8,       0,            -1 },
-  { "discord",      NULL,       NULL,       1 << 7,       0,            -1 },
-  { "Steam",        NULL,       NULL,       1 << 6,       0,            -1 },
-  { "St",           "st-float", NULL,       ~0,           1,            -1 },
+	/* class          instance        title       tags mask     isfloating    monitor */
+  { "firefox",      NULL,           NULL,       1 << 8,       0,            -1 },
+  { "discord",      NULL,           NULL,       1 << 7,       0,            -1 },
+  { "Steam",        NULL,           NULL,       1 << 6,       0,            -1 },
+  { "St",           "st-float",     NULL,       ~0,           1,            -1 },
+  { "stalonetray",  "stalonetray",  NULL,       ~0,           1,            -1 },
 };
 
 /* layout(s) */
@@ -118,7 +119,7 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_backslash, spawn, SHCMD("dunstctl close")              },
   { MODKEY|ControlMask|ShiftMask, XK_backslash, spawn, SHCMD("dunstctl close-all")          },
   { MODKEY|ControlMask,           XK_space,     spawn, SHCMD("dunstctl history-pop")        },
-  { MODKEY,                       XK_F12, spawn,      XACMD("slock")                        },  // Lockscreen
+  { MODKEY,                       XK_F12, spawn,      SHCMD("xset s activate")              },  // Lockscreen
 
   /* media keys */
   { MODKEY,             XK_F5,    spawn,  SHCMD("mpc toggle")                       },  // mpc pause/play
