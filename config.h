@@ -156,7 +156,7 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_n,   spawn,    XACMD("dtodo")        },  // checklist style notetaker
   { MODKEY|ControlMask,           XK_p,   spawn,    XACMD("gimp")         },
   { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("librewolf")    },
-  { MODKEY|ShiftMask|ControlMask, XK_r,   spawn,    XACMD("firefox")      },
+  { MODKEY|ShiftMask,             XK_r,   spawn,    XACMD("firefox")      },
   { MODKEY|ControlMask,           XK_s,   spawn,    STCMD("ncmpcpp")      },
   { MODKEY,                       XK_t,   spawn,    XACMD("st")           },
   { MODKEY|ControlMask,           XK_t,   spawn,    XACMD("xterm")        }, // backup terminal
