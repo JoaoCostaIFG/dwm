@@ -56,6 +56,7 @@ static const Rule rules[] = {
 	 */
 	/* class          instance        title       tags mask     isfloating    monitor */
   { "firefox",      NULL,           NULL,       1 << 8,       0,            -1 },
+  { "librewolf",    NULL,           NULL,       1 << 8,       0,            -1 },
   { "discord",      NULL,           NULL,       1 << 7,       0,            -1 },
   { "Steam",        NULL,           NULL,       1 << 6,       0,            -1 },
   { "St",           "st-float",     NULL,       ~0,           1,            -1 },
@@ -154,7 +155,8 @@ static Key keys[] = {
   { MODKEY,                       XK_m,   spawn,    XACMD("screen_measure") },  // measure distance between 2 points
   { MODKEY|ControlMask,           XK_n,   spawn,    XACMD("dtodo")        },  // checklist style notetaker
   { MODKEY|ControlMask,           XK_p,   spawn,    XACMD("gimp")         },
-  { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("firefox")      },
+  { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("librewolf")    },
+  { MODKEY|ShiftMask|ControlMask, XK_r,   spawn,    XACMD("firefox")      },
   { MODKEY|ControlMask,           XK_s,   spawn,    STCMD("ncmpcpp")      },
   { MODKEY,                       XK_t,   spawn,    XACMD("st")           },
   { MODKEY|ControlMask,           XK_t,   spawn,    XACMD("xterm")        }, // backup terminal
