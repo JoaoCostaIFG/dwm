@@ -60,7 +60,8 @@ static const Rule rules[] = {
   { "discord",      NULL,           NULL,       1 << 7,       0,            -1 },
   { "Steam",        NULL,           NULL,       1 << 6,       0,            -1 },
   { "St",           "st-float",     NULL,       ~0,           1,            -1 },
-  { "stalonetray",  "stalonetray",  NULL,       ~0,           1,            -1 },
+  { "stalonetray",  "stalonetray",  NULL,       0,            1,            -1 },
+  { "Pinentry-gtk-2", NULL,         NULL,       0,            1,            -1 },
 };
 
 /* layout(s) */
