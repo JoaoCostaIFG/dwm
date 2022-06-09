@@ -148,7 +148,7 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_c,   spawn,    STCMD("python")       },
   { MODKEY|ShiftMask|ControlMask, XK_c,   spawn,    STCMD("mmaxima")      },
   { MODKEY,                       XK_e,   spawn,    XACMD("emoji-picker") },
-  { MODKEY|ControlMask,           XK_e,   spawn,    XACMD("thunderbird")  },
+  { MODKEY|ControlMask,           XK_e,   spawn,    STCMD("birdtray", "-t")}, // toggle thunderbird
   { MODKEY|ControlMask,           XK_f,   spawn,    STCMD("lfcd_sh")      },  // execute lf in st and cd to last dir on exit
   { MODKEY|ControlMask,           XK_h,   spawn,    XACMD("dpizhid")      },  // private password manager
   { MODKEY|ControlMask,           XK_i,   spawn,    STCMD("newsboat")     },
